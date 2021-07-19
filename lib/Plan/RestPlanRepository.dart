@@ -5,12 +5,8 @@ import 'package:flutter_app/Plan/IPlanRepository.dart';
 import 'package:flutter_app/Plan/Plan.dart';
 import 'package:flutter_app/User/User.dart';
 
-import 'package:http/http.dart' as http;
-import 'package:http/src/mock_client.dart';
-
-
 class RestPlanRepository implements IPlanRepo{
-  String API_URL = "http://192.168.1.102:3000";
+  static const String API_URL = "http://192.168.1.102:3000";
 
   @override
   Plan add(Plan plan) {
@@ -79,9 +75,9 @@ class RestPlanRepository implements IPlanRepo{
 
   @override
   Plan getById(int id) {
-    Future<http.Response> fetchAlbum() {
-      return http.get(Uri.parse("$API_URL/plans/$id"));
-    }
+      // return http.get(Uri.parse("$API_URL/plans/$id"));
+      throw UnimplementedError();
+
 
   }
 

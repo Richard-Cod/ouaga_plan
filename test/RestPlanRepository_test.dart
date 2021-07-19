@@ -1,7 +1,5 @@
 
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/Plan/IPlanRepository.dart';
 import 'package:flutter_app/Plan/Plan.dart';
 import 'package:flutter_app/Plan/RestPlanRepository.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,9 +7,8 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
 
-String API_URL = "http://192.168.1.102:3000";
+const String API_URL = "http://192.168.1.102:3000";
 
 @GenerateMocks([http.Client])
 void main() {

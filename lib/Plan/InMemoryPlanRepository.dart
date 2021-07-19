@@ -14,6 +14,7 @@ class InMemoryPlanRepository implements IPlanRepo {
   @override
   Plan add(Plan plan) {
     this.plans.add(plan);
+    return plan;
   }
 
   @override
