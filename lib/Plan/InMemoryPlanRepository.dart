@@ -5,38 +5,52 @@ import 'package:flutter_app/User/User.dart';
 
 class InMemoryPlanRepository implements IPlanRepo {
   List<Plan> plans = [];
+  static const Duration duration = Duration(milliseconds: 100);
 
   @override
-  getAll() {
-    return this.plans;
+  Future<List<Plan>>getAll({dynamic client}) {
+   return Future.delayed(
+      duration,
+          () => this.plans ,
+    );
   }
 
   @override
-  Plan add(Plan plan) {
+  Future<Plan> add(Plan plan ,{dynamic client}) {
     this.plans.add(plan);
-    return plan;
+    return Future.delayed(
+      duration,
+          () => plan ,
+    );
   }
 
   @override
-  getById(int i) {
-    return this.plans.firstWhere(
-            (element) => element.id == i,
-             orElse: () => null,);
+  getById(int i , {dynamic client}) {
+   Plan plan =  this.plans.firstWhere(
+          (element) => element.id == i,
+      orElse: () => null,);
+
+    return Future.delayed(
+      duration,
+          () => plan ,
+    );
+
   }
 
   @override
-  bool delete(Plan plan) {
+  Future<bool> delete(Plan plan , {dynamic client}) {
     // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
-  bool deleteById(int id) {
+  Future<bool> deleteById(int id , {dynamic client}) {
     final int index = this.plans.indexWhere((element) => element.id == id);
-    if(index == -1) return false;
+    if(index == -1) return Future.delayed(
+      duration, () => false );
 
     this.plans.removeAt(index);
-    return true;
+    return Future.delayed(duration, () => true);
   }
 
   @override
@@ -45,7 +59,7 @@ class InMemoryPlanRepository implements IPlanRepo {
   }
 
   @override
-  Plan update(Plan plan) {
+  Plan update(Plan plan ,{dynamic client}) {
     final int index = this.plans.indexWhere((element) => element.id == plan.id);
     if(index == -1) return null;
     this.plans[index] = plan  ;
@@ -53,7 +67,7 @@ class InMemoryPlanRepository implements IPlanRepo {
   }
 
   @override
-  bool addInvited(Plan plan, User user) {
+  bool addInvited(Plan plan, User user ,{dynamic client}) {
     final int index = this.plans.indexWhere((element) => element.id == plan.id);
     if(index == -1) return false;
 

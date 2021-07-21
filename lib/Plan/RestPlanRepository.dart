@@ -9,32 +9,26 @@ class RestPlanRepository implements IPlanRepo{
   static const String API_URL = "http://192.168.1.102:3000";
 
   @override
-  Plan add(Plan plan) {
-
+  Future<Plan> add(Plan plan , {dynamic client}) {
     throw UnimplementedError();
   }
 
   @override
-  bool addInvited(Plan plan, User user) {
+  bool addInvited(Plan plan, User user , {dynamic client}) {
     // TODO: implement addInvited
     throw UnimplementedError();
   }
 
   @override
-  bool delete(Plan plan) {
+  Future<bool> delete(Plan plan , {dynamic client}) {
     // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
-  bool deleteById(int id) {
-    // TODO: implement deleteById
-    throw UnimplementedError();
-  }
-
-  Future<bool> deleteByIdAsync(int id , dynamic client) async{
+  Future<bool> deleteById(int id , {dynamic client}) async {
     final response =
-    await client.delete(Uri.parse("$API_URL/plans/$id"));
+        await client.delete(Uri.parse("$API_URL/plans/$id"));
 
     if (response.statusCode == 200) {
       // var jsonResponse = json.decode(response.body);
@@ -43,15 +37,13 @@ class RestPlanRepository implements IPlanRepo{
       throw Exception('Failed to delete plan');
     }
 
+
   }
+
+
 
   @override
-  List<Plan> getAll() {
-    throw UnimplementedError();
-    // return http.get(Uri.parse("$API_URL/plans"));
-  }
-
-  Future<List<Plan>> getAllAsync(dynamic client) async {
+  Future<List<Plan>> getAll({dynamic client}) async {
     final response =
         await client.get(Uri.parse("$API_URL/plans"));
 
@@ -73,26 +65,9 @@ class RestPlanRepository implements IPlanRepo{
 
   }
 
-  @override
-  Plan getById(int id) {
-      // return http.get(Uri.parse("$API_URL/plans/$id"));
-      throw UnimplementedError();
-
-
-  }
 
   @override
-  void populate(List<Plan> plans) {
-    // TODO: implement populate
-  }
-
-  @override
-  Plan update(Plan plan) {
-    // TODO: implement update
-    throw UnimplementedError();
-  }
-
-  Future<Plan> getByIdAsync(int id , dynamic client) async {
+  Future<Plan> getById(int id , {dynamic client}) async {
     final response =
         await client.get(Uri.parse("$API_URL/plans/$id"));
 
@@ -106,6 +81,20 @@ class RestPlanRepository implements IPlanRepo{
       // then throw an exception.
       throw Exception('Failed to load plan');
     }
+
   }
+
+  @override
+  void populate(List<Plan> plans) {
+    // TODO: implement populate
+  }
+
+  @override
+  Plan update(Plan plan , {dynamic client}) {
+    // TODO: implement update
+    throw UnimplementedError();
+  }
+
+
 
 }

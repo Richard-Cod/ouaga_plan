@@ -39,7 +39,7 @@ void main() {
         return Response(resultBody, 200);
       });
 
-      expect(await planRepository.getAllAsync(client), isA<List<Plan>>());
+      expect(await planRepository.getAll(client: client), isA<List<Plan>>());
     });
 
     test('throws an exception if the http call completes with an error', () {
@@ -49,7 +49,7 @@ void main() {
 
       // Use Mockito to return an unsuccessful response when it calls the
       // provided http.Client.
-      expect(planRepository.getAllAsync(client), throwsException);
+      expect(planRepository.getAll(client: client), throwsException);
     });
 
   });
@@ -66,7 +66,7 @@ void main() {
         return Response(resultBody, 200);
       });
 
-      expect(await planRepository.getByIdAsync(1 , client), isA<Plan>());
+      expect(await planRepository.getById(1 , client: client), isA<Plan>());
     });
 
     test('throws an exception if the http call completes with an error', () {
@@ -76,7 +76,7 @@ void main() {
 
       // Use Mockito to return an unsuccessful response when it calls the
       // provided http.Client.
-      expect(planRepository.getByIdAsync(1 , client), throwsException);
+      expect(planRepository.getById(1 , client: client), throwsException);
     });
 
   });
@@ -87,7 +87,7 @@ void main() {
       final client = MockClient((request) async {
         return Response("true", 200);
       });
-      final bool result = await planRepository.deleteByIdAsync(1 , client);
+      final bool result = await planRepository.deleteById(1 , client: client);
       expect(result, true);
     });
 
@@ -96,7 +96,7 @@ void main() {
         return Response("Not found", 404);
       });
 
-      expect(planRepository.deleteByIdAsync(1 , client), throwsException);
+      expect(planRepository.deleteById(1 , client: client), throwsException);
     });
 
   });

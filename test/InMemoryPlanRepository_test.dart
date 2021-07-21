@@ -12,21 +12,23 @@ void main() {
     planRepository = InMemoryPlanRepository()
   });
 
-  test('Should get 0 plans', () {
-    expect(planRepository.getAll(), []);
+  test('Should get 0 plans', () async {
+    List<Plan> plans = await planRepository.getAll();
+    expect(plans, []);
   });
 
-  test('Should get 1 plan', () {
+  test('Should get 1 plan', () async{
     planRepository.add(Plan(id: 1 , title: "title", invited: []));
-    expect(planRepository.getById(1).title, "title");
+    expect((await planRepository.getById(1)).title, "title");
   });
 
-  test('Should add 1 plan', () {
+  test('Should add 1 plan', () async {
     planRepository.add(Plan(id: 1 , title: "title", invited: []));
-    expect(planRepository.getAll()[0].title, "title");
+    List<Plan> plans = await planRepository.getAll();
+    expect(plans[0].title, "title");
   });
 
-  test('Should be able to populate repository', () {
+  test('Should be able to populate repository', () async{
     List<Plan> plans = [
       Plan(id: 1 , title: "title1", invited: []) ,
       Plan(id: 2 , title: "title2", invited: []) ,
@@ -34,25 +36,25 @@ void main() {
     ];
     planRepository.populate(plans);
 
-    for(Plan plan in planRepository.getAll() ){
+    for(Plan plan in (await planRepository.getAll()) ){
       expect(plans, contains(plan));
     }
   });
 
 
 
-  test('Should delete 1 plan', () {
+  test('Should delete 1 plan', () async {
     planRepository.add(Plan(id: 1 , title: "title", invited: []));
 
-    expect(true,planRepository.deleteById(1));
-    expect(null, planRepository.getById(1));
+    expect(true,(await planRepository.deleteById(1)));
+    expect(null, (await planRepository.getById(1)));
   });
 
-  test('Should not delete 1 plan because not in db', () {
-    expect(false, planRepository.deleteById(1));
+  test('Should not delete 1 plan because not in db', () async {
+    expect(false, (await planRepository.deleteById(1)));
   });
 
-  test('Should be able to update 1 plan', () {
+  test('Should be able to update 1 plan', ()  async {
     Plan plan = Plan(id: 1 , title: "title" , description: "description", invited: []);
     planRepository.add(plan);
 
@@ -61,8 +63,9 @@ void main() {
 
     planRepository.update(plan);
 
-    expect("new title", planRepository.getById(1).title);
-    expect("new description", planRepository.getById(1).description);
+    Plan planFromDB = await planRepository.getById(1);
+    expect("new title", planFromDB.title);
+    expect("new description", planFromDB.description);
   });
 
   test('Should not be able to update 1 plan because not in db', () {
@@ -79,14 +82,14 @@ void main() {
     expect([], plan.invited);
   });
 
-  test('Should be able to add invited to a plan', () {
+  test('Should be able to add invited to a plan', () async {
     Plan plan = Plan(id: 1 , title: "title" , description: "description", invited: []);
     planRepository.add(plan);
 
     planRepository.addInvited(plan , User(username: "Toto" ));
 
     expect("Toto", plan.invited[0].username);
-    expect("Toto", planRepository.getById(1).invited[0].username);
+    expect("Toto", (await planRepository.getById(1)).invited[0].username);
   });
 
 

@@ -2,15 +2,15 @@ import 'package:flutter_app/Plan/Plan.dart';
 import 'package:flutter_app/User/User.dart';
 
 class IPlanRepo {
-  List<Plan> getAll(){return null;}
-  Plan getById(int id){return null;}
-  Plan add(Plan plan){return null;}
-  bool delete(Plan plan){return false;}
-  bool deleteById(int id){return false;}
+  Future<List<Plan>> getAll({dynamic client}) async {return null;}
+  Future<Plan> getById(int id , {dynamic client}) async {return null;}
+  Future<Plan> add(Plan plan , {dynamic client}) async {return null;}
+  Future<bool> delete(Plan plan , {dynamic client}) async {return false;}
+  Future<bool> deleteById(int id , {dynamic client}) async {return false;}
 
   void populate(List<Plan> plans) {}
 
-  Plan update(Plan plan) {return null;}
+  Plan update(Plan plan , {dynamic client}) {return null;}
 
-  bool addInvited(Plan plan, User user) {return false;}
+  bool addInvited(Plan plan, User user , {dynamic client}) {return false;}
 }
