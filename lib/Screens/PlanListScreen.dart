@@ -113,7 +113,7 @@ class PlanListScreen extends StatelessWidget {
 }
 
 class EventCard extends StatelessWidget {
-  Plan plan;
+  final Plan plan;
 
   EventCard({@required this.plan});
 
