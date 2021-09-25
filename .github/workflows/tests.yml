@@ -1,3 +1,5 @@
+# @format
+
 name: Flutter_Tests
 
 on:
@@ -17,7 +19,10 @@ jobs:
       - name: Install and set Flutter version
         uses: subosito/flutter-action@v1.4.0
         with:
-          flutter-version: '1.22.0'
+          flutter-version: "1.22.0"
+
+      - name: create env file
+        run: touch .env
 
       - name: Restore packages
         run: flutter pub get
@@ -31,7 +36,3 @@ jobs:
       - name: Upload coverage to codecov
         run: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
         shell: bash
-
-
-
-
