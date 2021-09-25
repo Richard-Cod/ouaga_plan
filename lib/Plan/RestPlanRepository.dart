@@ -10,7 +10,16 @@ import 'package:flutter_dotenv/flutter_dotenv.dart' as dotenv;
 
 class RestPlanRepository implements IPlanRepo {
   // ignore: non_constant_identifier_names
-  String API_URL = dotenv.env['API_URL'];
+  String API_URL;
+  RestPlanRepository() {
+    this.API_URL = dotenv.env["API_URL"];
+  }
+
+  // This constructor will be removed if fix is found
+  // Now for some reasons dotenv can't be loaded in test mode
+  RestPlanRepository.withApiUrl(String apiUrl) {
+    this.API_URL = apiUrl;
+  }
 
   @override
   Future<Plan> add(Plan plan, {dynamic client}) {
@@ -70,8 +79,6 @@ class RestPlanRepository implements IPlanRepo {
 
   @override
   Future<List<Plan>> getAll({Client client}) async {
-    print(dotenv.env);
-
     final response = await client.get(Uri.parse("$API_URL/plans"));
 
     if (response.statusCode == 200) {
