@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Named Routes Demo',
       // Start the app with the "/" named route. In this case, the app starts
-      // on the FirstScreen widget.
       initialRoute: PlanListScreen.pageName,
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
