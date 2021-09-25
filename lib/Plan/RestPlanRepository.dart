@@ -10,7 +10,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart' as dotenv;
 
 class RestPlanRepository implements IPlanRepo {
   // ignore: non_constant_identifier_names
-
   String API_URL = dotenv.env['API_URL'];
 
   @override
