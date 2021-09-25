@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Screens/AuthScreensLogic.dart';
+
+import 'AuthScreensLogic.dart';
 
 class RegisterScreen extends StatefulWidget {
   static String pageName = "/register";

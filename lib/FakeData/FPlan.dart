@@ -7,22 +7,22 @@ const KfakePlanData = [
     "date": "2021-08-05",
     "covImage": "http://www.fasozine.com/images/SOCIETE/Bouzout1.jpg"
   },
-  {
-    "id": 2,
-    "title": "Koffi Gombo 16h",
-    "description": "On va gastro le RSP !",
-    "date": "2021-08-05",
-    "covImage":
-        "https://scontent.foua3-1.fna.fbcdn.net/v/t1.6435-9/146341434_1212738255794260_426653631719492433_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=973b4a&_nc_ohc=DoNjUrZlAeEAX91tEA2&_nc_ht=scontent.foua3-1.fna&oh=a05ed727775d3495b95da12673e3a1d9&oe=6144A110"
-  },
-  {
-    "id": 3,
-    "title": "Sika lounge 18h",
-    "description": "Happy our !",
-    "date": "2021-09-12",
-    "covImage":
-        "https://media-cdn.tripadvisor.com/media/photo-s/0f/8d/5e/95/notre-jardin-arbore.jpg"
-  },
+  // {
+  //   "id": 2,
+  //   "title": "Koffi Gombo 16h",
+  //   "description": "On va gastro le RSP !",
+  //   "date": "2021-08-05",
+  //   "covImage":
+  //       "https://scontent.foua3-1.fna.fbcdn.net/v/t1.6435-9/146341434_1212738255794260_426653631719492433_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=973b4a&_nc_ohc=DoNjUrZlAeEAX91tEA2&_nc_ht=scontent.foua3-1.fna&oh=a05ed727775d3495b95da12673e3a1d9&oe=6144A110"
+  // },
+  // {
+  //   "id": 3,
+  //   "title": "Sika lounge 18h",
+  //   "description": "Happy our !",
+  //   "date": "2021-09-12",
+  //   "covImage":
+  //       "https://media-cdn.tripadvisor.com/media/photo-s/0f/8d/5e/95/notre-jardin-arbore.jpg"
+  // },
 //   {
 //     "id": 2,
 //     "title": "ac consequat",

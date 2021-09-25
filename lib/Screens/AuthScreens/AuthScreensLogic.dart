@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Screens/LoginScreen.dart';
-import 'package:flutter_app/Screens/RegisterScreen.dart';
+import 'package:flutter_app/Screens/PlanListScreen/PlanListScreen.dart';
 import 'package:flutter_app/utils/AuthInputValidator.dart';
 
-import 'PlanListScreen.dart';
+import 'LoginScreen.dart';
+import 'RegisterScreen.dart';
 
 class AuthScreensLogic {
   static Widget getSocialsIcons({@required context, bool isLogin = true}) {
@@ -145,8 +145,8 @@ class AuthScreensLogic {
               return;
             }
             print("registered");
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: (_) => PlanListScreen()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => PlanListScreen()));
             return;
           }
 

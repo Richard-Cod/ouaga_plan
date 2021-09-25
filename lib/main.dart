@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Screens/LoginScreen.dart';
-import 'package:flutter_app/Screens/PlanListScreen.dart';
-import 'package:flutter_app/Screens/RegisterScreen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as dotenv;
 
-void main() {
+import 'Screens/AuthScreens/LoginScreen.dart';
+import 'Screens/AuthScreens/RegisterScreen.dart';
+import 'Screens/PlanListScreen/PlanListScreen.dart';
+
+void main() async {
+  await dotenv.load(fileName: ".env");
   runApp(MyApp());
 }
 
@@ -15,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Named Routes Demo',
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
-      initialRoute: RegisterScreen.pageName,
+      initialRoute: PlanListScreen.pageName,
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => PlanListScreen(),
