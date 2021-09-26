@@ -2,32 +2,40 @@ import 'package:flutter_app/utils/Authenticator/IAuthenticator.dart';
 
 class InMemorAuthenticator implements IAuthenticator {
   @override
-  bool loginWithEmailAndPassword(String email, String password) {
-    return true;
+  Future<bool> loginWithEmailAndPassword(String email, String password) {
+    return Future.delayed(
+      duration,
+      () => true,
+    );
   }
 
   @override
-  bool loginWithFacebook() {
-    return true;
+  Future<bool> loginWithFacebook() {
+    // TODO: implement loginWithFacebook
+    throw UnimplementedError();
   }
 
   @override
-  bool loginWithgoogle() {
-    return true;
+  Future<bool> loginWithgoogle() {
+    // TODO: implement loginWithgoogle
+    throw UnimplementedError();
   }
 
   @override
-  bool registerWithEmailAndPassword(String email, String password) {
-    return true;
+  Future<bool> registerWithEmailAndPassword(String email, String password) {
+    // TODO: implement registerWithEmailAndPassword
+    throw UnimplementedError();
   }
 
   @override
-  bool registerWithFacebook() {
-    return true;
+  Future<bool> registerWithFacebook() {
+    // TODO: implement registerWithFacebook
+    throw UnimplementedError();
   }
 
   @override
-  bool registerWithGoogle() {
-    return true;
+  Future<bool> registerWithGoogle() {
+    // TODO: implement registerWithGoogle
+    throw UnimplementedError();
   }
 }

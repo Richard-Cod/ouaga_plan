@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Screens/PlanListScreen/PlanListScreen.dart';
+import 'package:flutter_app/utils/Authenticator/FirebaseAuthenticator.dart';
 import 'package:flutter_app/utils/Authenticator/IAuthenticator.dart';
-import 'package:flutter_app/utils/Authenticator/InMemoryAuthenticator.dart';
 import 'package:flutter_app/utils/Authenticator/notifyUser.dart';
 
-IAuthenticator authenticator = InMemorAuthenticator();
+IAuthenticator authenticator = FirebaseAuthenticator();
 
 authWithEmailAndPasswordButton(
-    {context, bool isLogin = true, @required formValidationFunc}) {
+    {context,
+    bool isLogin = true,
+    @required formValidationFunc,
+    @required String email,
+    @required String password}) {
   return Container(
     height: 50,
     width: 250,
@@ -17,10 +21,10 @@ authWithEmailAndPasswordButton(
       onPressed: () {
         if (formValidationFunc()) {
           if (isLogin) {
-            handleLogin(context);
+            handleLogin(context, email, password);
             return;
           }
-          handleRegisteration(context);
+          handleRegisteration(context, email, password);
         }
       },
       child: Text(
@@ -31,20 +35,24 @@ authWithEmailAndPasswordButton(
   );
 }
 
-void handleLogin(context) {
+void handleLogin(context, email, password) async {
   try {
-    authenticator.loginWithEmailAndPassword("email", "password");
-    Navigator.pushReplacementNamed(context, PlanListScreen.pageName);
+    print("success");
+    print(email);
+    print(password);
+    await authenticator.loginWithEmailAndPassword(email, password);
+    print("dd");
+    // Navigator.pushReplacementNamed(context, PlanListScreen.pageName);
   } catch (e) {
     notifyUser(context, "Erreur", e.toString());
   }
 }
 
-void handleRegisteration(context) {
+void handleRegisteration(context, email, password) async {
   try {
     print("registered");
-    authenticator.registerWithEmailAndPassword("email", "password");
-    Navigator.pushReplacementNamed(context, PlanListScreen.pageName);
+    await authenticator.registerWithEmailAndPassword(email, password);
+    // Navigator.pushReplacementNamed(context, PlanListScreen.pageName);
   } catch (e) {
     notifyUser(context, "Erreur", e.toString());
   }

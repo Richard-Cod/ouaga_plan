@@ -17,10 +17,20 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
+  String _email;
+  String _password;
 
   @override
   Widget build(BuildContext context) {
     final formValidationFunc = () => _formKey.currentState.validate();
+
+    Function _setEmail = (email) => this.setState(() {
+          _email = email;
+        });
+    Function _setPassword = (password) => this.setState(() {
+          _password = password;
+        });
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -29,11 +39,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             children: <Widget>[
               showLogo(),
-              getEmailField(null),
-              getPasswordField(null),
+              getEmailField(_setEmail, null),
+              getPasswordField(_setPassword, null),
               forgetPasswordButton(context: context),
               registerButton(
-                  context: context, formValidationFunc: formValidationFunc),
+                context: context,
+                formValidationFunc: formValidationFunc,
+                email: _email,
+                password: _password,
+              ),
               getSocialsIcons(
                 context: context,
                 isLogin: false,

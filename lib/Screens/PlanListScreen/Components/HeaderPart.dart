@@ -1,14 +1,25 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
-import 'package:flutter_app/User/User.dart';
 
 import 'package:intl/intl.dart';
 
 class HeaderPart extends StatelessWidget {
-  final User user;
-  HeaderPart({this.user});
+  HeaderPart();
+
+  String getProfilePic(User user) {
+    if (user.photoURL != null) return user.photoURL;
+
+    if (user.displayName != null)
+      return "https://eu.ui-avatars.com/api/?name=" + user.displayName;
+
+    return "https://via.placeholder.com/150";
+  }
 
   @override
   Widget build(BuildContext context) {
+    User user = FirebaseAuth.instance.currentUser;
+    print(user);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -24,7 +35,7 @@ class HeaderPart extends StatelessWidget {
           ],
         ),
         CircleAvatar(
-          backgroundImage: NetworkImage(user.profilePic),
+          backgroundImage: NetworkImage(getProfilePic(user)),
         )
       ],
     );

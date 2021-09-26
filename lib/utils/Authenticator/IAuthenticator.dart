@@ -1,25 +1,32 @@
+const Duration duration = Duration(milliseconds: 100);
+
+var r = Future.delayed(
+  duration,
+  () => true,
+);
+
 class IAuthenticator {
-  bool loginWithEmailAndPassword(String email, String password) {
-    return true;
+  Future<bool> loginWithEmailAndPassword(String email, String password) {
+    return r;
   }
 
-  bool registerWithEmailAndPassword(String email, String password) {
-    return true;
+  Future<bool> registerWithEmailAndPassword(String email, String password) {
+    return r;
   }
 
-  bool loginWithgoogle() {
-    return true;
+  Future<bool> loginWithgoogle() {
+    return r;
   }
 
-  bool loginWithFacebook() {
-    return true;
+  Future<bool> loginWithFacebook() {
+    return r;
   }
 
-  bool registerWithGoogle() {
-    return true;
+  Future<bool> registerWithGoogle() {
+    return r;
   }
 
-  bool registerWithFacebook() {
-    return true;
+  Future<bool> registerWithFacebook() {
+    return r;
   }
 }

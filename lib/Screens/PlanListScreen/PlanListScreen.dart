@@ -49,7 +49,7 @@ class PlanListScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
         child: Column(
           children: [
-            HeaderPart(user: User.fromJson(KfakeUsersData[0])),
+            HeaderPart(),
             SizedBox(
               height: 30,
             ),
