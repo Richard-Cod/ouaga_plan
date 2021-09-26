@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Screens/PlanListScreen/PlanListScreen.dart';
 import 'package:flutter_app/utils/Authenticator/FirebaseAuthenticator.dart';
 import 'package:flutter_app/utils/Authenticator/IAuthenticator.dart';
 import 'package:flutter_app/utils/Authenticator/notifyUser.dart';

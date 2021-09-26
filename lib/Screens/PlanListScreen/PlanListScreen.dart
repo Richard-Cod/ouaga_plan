@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/FakeData/FUser.dart';
 import 'package:flutter_app/Plan/Plan.dart';
 import 'package:flutter_app/Plan/RestPlanRepository.dart';
-import 'package:flutter_app/User/User.dart';
 import 'package:http/http.dart';
 
 import 'Components/EventCard.dart';

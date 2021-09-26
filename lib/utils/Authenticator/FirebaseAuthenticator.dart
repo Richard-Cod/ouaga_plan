@@ -1,4 +1,3 @@
-import 'package:flutter_app/User/User.dart' as CustomUser;
 import 'package:flutter_app/utils/Authenticator/IAuthenticator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -42,9 +41,11 @@ class FirebaseAuthenticator implements IAuthenticator {
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
       }
+      return false;
     } catch (e) {
       print("firebase e ");
       print(e);
+      return false;
     }
   }
 
