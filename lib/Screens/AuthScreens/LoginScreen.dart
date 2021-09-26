@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'AuthScreensLogic.dart';
+import 'components/createAccountIfNotExist.dart';
+import 'components/forgotPasswordButton.dart';
+import 'components/getEmailField.dart';
+import 'components/getPassword.dart';
+import 'components/getSocialIcons.dart';
+import 'components/loginButton.dart';
+import 'components/showLogo.dart';
 
 class LoginScreen extends StatefulWidget {
   static String pageName = "/login";
@@ -23,23 +29,19 @@ class _LoginScreenState extends State<LoginScreen> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              AuthScreensLogic.showLogo(),
-              AuthScreensLogic.getEmailField(null),
-              AuthScreensLogic.getPasswordField(null),
-              AuthScreensLogic.forgetPasswordButton(context: context),
-              AuthScreensLogic.loginButton(
+              showLogo(),
+              getEmailField(null),
+              getPasswordField(null),
+              forgetPasswordButton(context: context),
+              loginButton(
                   context: context, formValidationFunc: formValidationFunc),
-              AuthScreensLogic.getSocialsIcons(context: context),
+              getSocialsIcons(context: context),
               SizedBox(height: 50),
-              AuthScreensLogic.createAccountIfNotExist(context: context),
+              createAccountIfNotExist(context: context),
             ],
           ),
         ),
       ),
     );
   }
-
-  loginWithGoogle() {}
-
-  loginWithFacebook() {}
 }

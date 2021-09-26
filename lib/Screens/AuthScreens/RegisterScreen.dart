@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'AuthScreensLogic.dart';
+import 'components/LoginIfAlreadyHaveAccount.dart';
+import 'components/forgotPasswordButton.dart';
+import 'components/getEmailField.dart';
+import 'components/getPassword.dart';
+import 'components/getSocialIcons.dart';
+import 'components/registerButton.dart';
+import 'components/showLogo.dart';
 
 class RegisterScreen extends StatefulWidget {
   static String pageName = "/register";
@@ -22,20 +28,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              AuthScreensLogic.showLogo(),
-              AuthScreensLogic.getEmailField(null),
-              AuthScreensLogic.getPasswordField(null),
-              AuthScreensLogic.forgetPasswordButton(context: context),
-              AuthScreensLogic.registerButton(
+              showLogo(),
+              getEmailField(null),
+              getPasswordField(null),
+              forgetPasswordButton(context: context),
+              registerButton(
                   context: context, formValidationFunc: formValidationFunc),
-              AuthScreensLogic.getSocialsIcons(
+              getSocialsIcons(
                 context: context,
                 isLogin: false,
               ),
               SizedBox(
                 height: 50,
               ),
-              AuthScreensLogic.loginIfAlreadyHaveAccount(context: context),
+              loginIfAlreadyHaveAccount(context: context),
             ],
           ),
         ),
