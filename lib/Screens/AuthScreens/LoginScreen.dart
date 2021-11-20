@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Screens/PlanListScreen/PlanListScreen.dart';
 
@@ -24,16 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    FirebaseAuth.instance.authStateChanges().listen((User user) {
-      if (user == null) {
-        print('User is currently signed out!');
-      } else {
-        print('User is signed in!');
-        Navigator.pushReplacementNamed(context, PlanListScreen.pageName);
-      }
-      return user;
-    });
-
     final formValidationFunc = () => _formKey.currentState.validate();
 
     Function _setEmail = (email) => this.setState(() {

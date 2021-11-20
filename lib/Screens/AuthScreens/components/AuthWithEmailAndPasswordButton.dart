@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/Authenticator/FirebaseAuthenticator.dart';
 import 'package:flutter_app/utils/Authenticator/IAuthenticator.dart';
+import 'package:flutter_app/utils/Authenticator/InMemoryAuthenticator.dart';
 import 'package:flutter_app/utils/Authenticator/notifyUser.dart';
 
-IAuthenticator authenticator = FirebaseAuthenticator();
+IAuthenticator authenticator = InMemorAuthenticator();
 
 authWithEmailAndPasswordButton(
     {context,

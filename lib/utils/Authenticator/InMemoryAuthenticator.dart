@@ -3,10 +3,11 @@ import 'package:flutter_app/utils/Authenticator/IAuthenticator.dart';
 class InMemorAuthenticator implements IAuthenticator {
   @override
   Future<bool> loginWithEmailAndPassword(String email, String password) {
-    return Future.delayed(
-      duration,
-      () => true,
-    );
+    // return Future.delayed(
+    //   duration,
+    //   () => false,
+    // );
+    throw UnimplementedError();
   }
 
   @override
